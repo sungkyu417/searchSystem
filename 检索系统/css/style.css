@@ -160,3 +160,83 @@ footer p{
 .journalsContent .content p{
 	margin-bottom: 0;
 }
+/*期刊详情页面*/
+.journalContent h3{
+	padding-top: 10px;
+	/*padding-left: 10px;*/
+}
+.journalContent .content{
+	padding-left: 10px;
+	margin-top: 30px;
+	padding-top: 20px;
+	position: relative;
+	border-top: 1px solid #CCCCCC;
+}
+.journalContent .content img{
+	position: absolute;
+	width: 100px;
+	height: 140px;
+}
+.journalContent .contentInfo{
+	margin-left: 180px;
+}
+.journalContent .contentInfo ul{
+	display: inline-block;
+	width: 240px;
+	/*margin-top: 10px;*/
+}
+.journalContent .contentInfo h3{
+	font-weight: bolder;
+}
+.journalContent .contentInfo h4{
+	margin-top: 0;
+}
+.journalContent .contentInfo h5{
+	line-height: 1;
+	margin-bottom: 10px;
+}
+.journalContent .contentInfo ul:last-child{
+	margin-right: 120px;
+	float: right;
+}
+.journalContent .contentInfo ul li:first-child{
+	background-color:#7ba3a8 ;
+}
+/*图书详情页面*/
+.journalContent .bookInfo{
+	height: ;
+}
+.journalContent .bookInfo ul:first-child{
+	border-top: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	padding-left: 5px;
+	padding-top: 5px;
+	width: 170px;
+}
+.journalContent .bookInfo ul li:first-child{
+	background-color: #F4F3DE;
+	font-weight:bold ;
+}
+.journalContent .bookInfo ul:last-child{
+	margin-top: 50px;
+}
+.journalContent .bookInfo ul:last-child li:first-child{
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+.recommend{
+	margin-top: 40px;
+}
+.recommend .p1{
+	width: 70px;
+	border: 1px solid #CCCCCC;
+	padding-left: 5px;
+	border-left: 3px solid #BEAD92;
+	margin-bottom: 0;
+	background-color: #CCCCCC;
+}
+.recommend .p2{
+	border-top: 1px solid #CCCCCC;
+	padding-top: 10px;
+	text-indent: 2em;
+}
