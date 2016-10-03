@@ -1,0 +1,162 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-family: "微软雅黑";
+	overflow: auto;
+	background-color: #F4F3DE;
+}
+ul li{
+	text-decoration: none;
+	list-style: none;
+}
+a{
+	cursor: pointer;
+	color: black;
+}
+a:hover{text-decoration: none;}
+.container-fluid{padding:0;}
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+}
+/*主页面*/
+.pageWhole{
+	width: 900px;
+	margin: 0 auto;
+}
+.header-tags{
+	height: 30px;
+}
+.header-tags ul{
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.header-tags li{
+	display: inline-block;
+	margin-right: 10px;
+	color: #BEAD92;
+}
+.header-tags li:last-child{
+	margin-right: 0;
+}
+.header-title{
+	background-color: #BEAD92;
+	height: 120px;
+	font-size: 40px;
+}
+.header-title p{
+	text-align: center;
+	padding-top: 30px;
+}
+.mainContent{
+	position: relative;
+	padding-top: 30px;
+}
+.content1{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 210px;
+}
+.content1 ul{
+	/*display: inline-block;*/
+	/*color: #BEAD92;*/
+	/*border: 1.5px solid #4f81bd;*/
+	width: 200px;
+	margin-top: 30px;
+	/*background-color: white;*/
+	padding: 20px;
+	font-style: italic;
+}
+
+.content1 ul li:first-child{
+	font-size: 18px;
+	font-style: normal;
+	color: black;
+}
+
+.content1 a{
+	cursor: pointer;
+	color: black;
+}
+.content1 a:hover{
+	color: #BEAD92;
+}
+.content2{
+	width: 690px;
+	margin-left: 210px;
+	padding-left: 20px;
+	padding-right: 20px;
+	
+}
+.content2 h3{
+	text-align: center;
+}
+.content2 img{
+	width: 300px;
+	height: 210px;
+	margin-top: 50px;
+}
+.content2 .lastPic{
+	float: right;
+}
+footer{
+	margin-top: 150px;
+	text-align: center;
+	font-size: 12px;
+	padding-top: 40px;
+	height: 130px;
+	border-top: 1px solid #CCCCCC;
+}
+footer p{
+	margin-bottom: 0;
+	line-height: 1.5;
+	color:#BEAD92 ;
+}
+/*精品期刊页面*/
+.sortBar{
+	height: 33px;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-bottom: 3px double #CCCCCC;
+}
+.sortBar span:last-child{
+	float: right;
+}
+.sortBar a{
+	margin-right: 5px;
+}
+.sortBar input{
+	width: 40px;
+	height: 20px;
+}
+.sortBar button{
+	width: 40px;
+	background-color: #5b4947;
+	border: 1px solid #BEAD92;
+	color: #F4F3DE;
+}
+.journalsContent .content{
+	border-bottom: 1px solid #CCCCCC;
+	position: relative;
+	padding-left: 120px;
+	padding-bottom: 10px;
+}
+.journalsContent .content img{
+	width: 80px;
+	height: 100px;
+	position: absolute;
+	top: 0px;
+	left: 10px;
+}
+.journalsContent .content p{
+	margin-bottom: 0;
+}
