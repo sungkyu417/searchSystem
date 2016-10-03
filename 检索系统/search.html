@@ -1,9 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=2.0,minimum-scale=1.0,user-scalable=yes" />
+    <meta name="keywords" content="中国法律引证指数CLCI系统" />
+    <title>中国法律引证指数CLCI系统检索页</title>
+    <meta name="copyright" content="Copyright 中国法律引证指数CLCI系统 版权所有" />
+    <link rel="icon" href="img/favicon.ico"> 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript"  src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript"  src="js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
 	</head>
-	<body>
+	<body class="indexPage">
+		<div class="pageWhole">
+			<header>
+				<div class="header-tags">
+					<ul>
+						<li>来源文献<span>7300</span>篇</li>
+						<li>被引文献<span>80万</span>余篇</li>
+					</ul>
+				</div>
+				<div class="header-title">
+					<p>来源文献检索</p>
+				</div>
+			</header>
+			<div class="searchBar">
+				<form>
+					<input type="text" />
+					<select>
+						<option value="作者">作者</option>
+						<option value="机构">机构</option>
+						<option value="篇名">篇名</option>
+						<option value="关键词">关键词</option>
+						<option value="来源期刊">来源期刊</option>
+					</select>
+					<input type="checkbox" />精确
+				</form>
+				<form id="addForm">
+					<select class="addSelect">
+						<option value="或">或</option>
+						<option value="和">和</option>
+						<option value="非">非</option>
+					</select>
+					<input type="text" />
+					<select>
+						<option value="作者">作者</option>
+						<option value="机构">机构</option>
+						<option value="篇名">篇名</option>
+						<option value="关键词">关键词</option>
+						<option value="来源期刊">来源期刊</option>
+					</select>
+					<input type="checkbox" />精确
+				</form>
+				<button>检索</button>
+				<button>清除</button>
+				<div class="yearSelect">
+					<span>发文年代：</span>
+					<input type="radio" />从
+					<select>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+					</select>至
+					<select>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+					</select>
+				</div>
+			</div>
+			<div class="searchResult">
+				<table>
+					<thead>
+						<th>
+							<td>来源作者</td>
+							<td>来源篇名</td>
+							<td>来源期刊</td>
+							<td>出版时间</td>
+						</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<footer>
+			<p>咨询：(025)83595841 Email:cssci@nju.edu.cn 服务：(025)83685102 学术集刊：jikan@nju.edu.cn</p>
+			<p>Copyright © 1998 - 2012 cssci.nju.edu.cn. All Rights Reserved</p>
+			<p>中国社会科学研究评价中心 版权所有 地址：南京市汉口路22号 邮编：210093</p>
+		</footer>
 	</body>
 </html>
