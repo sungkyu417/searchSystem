@@ -22,6 +22,13 @@
 			<header>
 				<div class="header-tags">
 					<ul>
+						<li><a href="#/index">首页</a></li>
+						<li><a href="#/search">文献检索</a></li>
+						<li><a href="#/ywSearch">引文检索</a></li>
+						<li><a href="#/journals">期刊目录</a></li>
+						<li><a href="#/books">图书目录</a></li>
+					</ul>
+					<ul>
 						<li>来源文献<span>7300</span>篇</li>
 						<li>被引文献<span>80万</span>余篇</li>
 					</ul>
@@ -34,21 +41,21 @@
 				<div class="content1">
 					<ul>
 						<li>高被引期刊</li>
-						<li><a>法学家</a></li>
+						<li><a href="journal.html">法学家</a></li>
 						<li><a>河北法学</a></li>
 						<li><a>法学</a></li>
 						<li><a>政法论坛</a></li>
 						<li><a>法商研究</a></li>
-						<li><a>More...</a></li>
+						<li><a href="Journals.html">More...</a></li>
 					</ul>
 					<ul>
 						<li>高被引著作</li>
-						<li><a>马克思恩格斯全集</a></li>
+						<li><a href="book.html">马克思恩格斯全集</a></li>
 						<li><a>法理学</a></li>
 						<li><a>刑法学</a></li>
 						<li><a>法理学：法律哲学与...</a></li>
 						<li><a>民法总论</a></li>
-						<li><a>More...</a></li>
+						<li><a href="books.html">More...</a></li>
 					</ul>
 				</div>
 				<div class="content2">
@@ -65,4 +72,29 @@
 			<p>中国社会科学研究评价中心 版权所有 地址：南京市汉口路22号 邮编：210093</p>
 		</footer>
 	</body>
+	<script>
+		
+		window.onhashchange = function(){
+			var hash = location.hash;
+			hash = hash.substring(1, hash.length);
+			switch(hash){
+				case "/index":
+				location.href="index.html";
+				break;
+				case "/search":
+				location.href="search.html";
+				break;
+				case "/ywSearch":
+				location.href="ywSearch.html";
+				break;
+				case "/journals":
+				location.href="Journals.html";
+				break;
+				case "/ywSearch":
+				location.href="ywSearch.html";
+				break;
+			}
+			
+		}
+	</script>
 </html>

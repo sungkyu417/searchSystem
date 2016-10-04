@@ -34,9 +34,15 @@ a:hover{text-decoration: none;}
 	height: 30px;
 }
 .header-tags ul{
-	float: right;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	display: inline-block;
+}
+.header-tags ul:last-child{
+	float: right;
+}
+.header-tags a{
+	color: #BEAD92;
 }
 .header-tags li{
 	display: inline-block;
@@ -303,6 +309,7 @@ footer p{
 .searchResult td{
 	border: 1px solid #CCCCCC;
 	height: 25px;
+	padding-left: 3px;
 }
 .searchResult table tr:nth-child(2n){
 	background-color: white;
@@ -313,4 +320,41 @@ footer p{
 .searchResult table tr:hover{
 	background-color: #7BA3A8;
 	cursor: pointer;
+}
+.ywSearchBar{
+	height: 240px;
+	padding-left: 10px;
+}
+.ywSearchBar form{
+	padding-left: 10px;
+}
+.ywSearchBar p span{
+	display: inline-block;
+	width: 110px;
+}
+.ywSearchBar input[type="text"]{
+	margin-right: 10px;
+}
+.ywSearchBar .searchStart{
+	margin-left: 300px;
+}
+.ywSearchBar button{
+	margin-top: 20px;
+}
+.ywSearchBar .selectYear {
+	font-size: 12px;
+	-webkit-text-size-adjust:none
+}
+/*文献详情页*/
+.articleContent table{
+	width: 100%;
+	margin-top: 20px;
+}
+.articleContent table td{
+	border: 1px solid #FFFFFF;
+	height: 30px;
+	padding-left: 4px;
+}
+.articleContent table td:first-child{
+	background-color: #c9cabb;
 }
