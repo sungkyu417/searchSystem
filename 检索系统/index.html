@@ -25,7 +25,7 @@
 						<li><a href="#/index">首页</a></li>
 						<li><a href="#/search">文献检索</a></li>
 						<li><a href="#/ywSearch">引文检索</a></li>
-						<li><a href="#/journals">期刊目录</a></li>
+						<li><a href="#/Journals">期刊目录</a></li>
 						<li><a href="#/books">图书目录</a></li>
 					</ul>
 					<ul>
@@ -65,6 +65,45 @@
 					<p>（点击图片进入检索页面）</p>
 				</div>
 			</div>
+				<div class="journals" style="display: none;">
+			<div class="sortBar">
+				<p><span>共100条记录，2页</span><span><a>首页</a><a>上页</a><a>下页</a><a>末页</a><input type="number" max="2" min="1"/>/2页 <button>转页</button></span></p>
+			</div>
+			<div class="journalsContent">
+				<div class="content">
+					<img />
+					<h4><a>比较法研究</a></h4>
+					<p>主办单位：中国政法大学比较法研究所</p>
+					<p>通讯地址：<span id="address"></span></p>
+					<p>联系电话：<span id="tel"></span></p>
+					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
+				</div>
+				<div class="content">
+					<img />
+					<h4><a>比较法研究</a></h4>
+					<p>主办单位：中国政法大学比较法研究所</p>
+					<p>通讯地址：<span id="address"></span></p>
+					<p>联系电话：<span id="tel"></span></p>
+					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
+				</div>
+				<div class="content">
+					<img />
+					<h4><a>比较法研究</a></h4>
+					<p>主办单位：中国政法大学比较法研究所</p>
+					<p>通讯地址：<span id="address"></span></p>
+					<p>联系电话：<span id="tel"></span></p>
+					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
+				</div>
+				<div class="content">
+					<img />
+					<h4><a>比较法研究</a></h4>
+					<p>主办单位：中国政法大学比较法研究所</p>
+					<p>通讯地址：<span id="address"></span></p>
+					<p>联系电话：<span id="tel"></span></p>
+					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
+				</div>
+			</div>
+			</div>
 		</div>
 		<footer>
 			<p>咨询：(025)83595841 Email:cssci@nju.edu.cn 服务：(025)83685102 学术集刊：jikan@nju.edu.cn</p>
@@ -77,6 +116,13 @@
 		window.onhashchange = function(){
 			var hash = location.hash;
 			hash = hash.substring(1, hash.length);
+//			var address=hash.substring(1,hash.length)+".html";
+//			location.href=address;
+			var showAndHide=function(){
+				console.log("fff");
+				$(".mainContent").hide();
+				$(".journals").show();
+			}
 			switch(hash){
 				case "/index":
 				location.href="index.html";
@@ -87,8 +133,10 @@
 				case "/ywSearch":
 				location.href="ywSearch.html";
 				break;
-				case "/journals":
-				location.href="Journals.html";
+				case "/Journals":
+				
+				showAndHide();
+//				location.href="Journals.html";
 				break;
 				case "/ywSearch":
 				location.href="ywSearch.html";
