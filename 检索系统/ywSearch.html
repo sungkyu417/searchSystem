@@ -34,75 +34,26 @@
 					</ul>
 				</div>
 				<div class="header-title">
-					<p>来源文献检索</p>
+					<p>被引文献检索</p>
 				</div>
 			</header>
-			<div class="searchBar">
+			<div class="searchBar ywSearchBar">
 				<form>
-					<input type="text" />
-					<select>
-						<option value="作者">作者</option>
-						<option value="机构">机构</option>
-						<option value="篇名">篇名</option>
-						<option value="关键词">关键词</option>
-						<option value="来源期刊">来源期刊</option>
-					</select>
-					<input type="checkbox" />精确
+					<p><span>被引作者：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p><span>被引文献篇名：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p><span>被引文献期刊：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p><span>被引文献年代：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p class="selectYear"><span style="font-size: 14px;">被引年份：</span><input type="checkbox"/ value="2001">2001<input type="checkbox"/ value="2002">2002
+					<input type="checkbox"/ value="2003">2003<input type="checkbox"/ value="2004">2004<input type="checkbox"/ value="2005">2005
+					<input type="checkbox"/ value="2006">2006<input type="checkbox"/ value="2007">2007<input type="checkbox"/ value="2008">2008
+					<input type="checkbox"/ value="2009">2009<input type="checkbox"/ value="2010">2010
+					<input type="checkbox"/ value="2011">2011<input type="checkbox"/ value="2012">2012<input type="checkbox"/ value="2013">2013
+					<input type="checkbox"/ value="2014">2014<input type="checkbox"/ value="2015">2015<input type="checkbox"/ value="2016">2016
+					<input type="checkbox"/ value="all">全选</p>
+					
+					<button class="searchStart">检索</button>
+					<button class="clearSearch">清除</button>
 				</form>
-				<form id="addForm">
-					<select class="addSelect">
-						<option value="或">或</option>
-						<option value="和">和</option>
-						<option value="非">非</option>
-					</select>
-					<input type="text" />
-					<select>
-						<option value="作者">作者</option>
-						<option value="机构">机构</option>
-						<option value="篇名">篇名</option>
-						<option value="关键词">关键词</option>
-						<option value="来源期刊">来源期刊</option>
-					</select>
-					<input type="checkbox" />精确
-				</form>
-				<form id="addForm">
-					<select class="addSelect">
-						<option value="或">或</option>
-						<option value="和">和</option>
-						<option value="非">非</option>
-					</select>
-					<input type="text" />
-					<select>
-						<option value="作者">作者</option>
-						<option value="机构">机构</option>
-						<option value="篇名">篇名</option>
-						<option value="关键词">关键词</option>
-						<option value="来源期刊">来源期刊</option>
-					</select>
-					<input type="checkbox" />精确
-				</form>
-				<button class="searchStart">检索</button>
-				<button class="clearSearch">清除</button>
-				<div class="yearSelect">
-					<span>发文年代：</span>
-					<input type="radio" />&nbsp;&nbsp;从&nbsp;&nbsp;
-					<select>
-						<option value="2000">2000</option>
-						<option value="2001">2001</option>
-						<option value="2002">2002</option>
-						<option value="2003">2003</option>
-						<option value="2004">2004</option>
-						<option value="2005">2005</option>
-					</select>&nbsp;&nbsp;至&nbsp;&nbsp;
-					<select>
-						<option value="2000">2000</option>
-						<option value="2001">2001</option>
-						<option value="2002">2002</option>
-						<option value="2003">2003</option>
-						<option value="2004">2004</option>
-						<option value="2005">2005</option>
-					</select>
-				</div>
 			</div>
 			<div class="searchResult">
 				<p>检索结果：</p>
@@ -183,3 +134,4 @@
 		</footer>
 	</body>
 </html>
+

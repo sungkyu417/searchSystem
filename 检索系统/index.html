@@ -22,6 +22,13 @@
 			<header>
 				<div class="header-tags">
 					<ul>
+						<li><a href="#/index">首页</a></li>
+						<li><a href="#/search">文献检索</a></li>
+						<li><a href="#/ywSearch">引文检索</a></li>
+						<li><a href="#/journals">期刊目录</a></li>
+						<li><a href="#/books">图书目录</a></li>
+					</ul>
+					<ul>
 						<li>来源文献<span>7300</span>篇</li>
 						<li>被引文献<span>80万</span>余篇</li>
 					</ul>
@@ -53,7 +60,7 @@
 				</div>
 				<div class="content2">
 					<h3>来源文献及被引文献检索</h3>
-					<a href="search.html"><img src="img/图片1.png" /></a>
+					<a><img src="img/图片1.png" /></a>
 					<a class="lastPic"><img src="img/图片2.png" /></a>
 					<p>（点击图片进入检索页面）</p>
 				</div>
@@ -65,4 +72,29 @@
 			<p>中国社会科学研究评价中心 版权所有 地址：南京市汉口路22号 邮编：210093</p>
 		</footer>
 	</body>
+	<script>
+		
+		window.onhashchange = function(){
+			var hash = location.hash;
+			hash = hash.substring(1, hash.length);
+			switch(hash){
+				case "/index":
+				location.href="index.html";
+				break;
+				case "/search":
+				location.href="search.html";
+				break;
+				case "/ywSearch":
+				location.href="ywSearch.html";
+				break;
+				case "/journals":
+				location.href="Journals.html";
+				break;
+				case "/ywSearch":
+				location.href="ywSearch.html";
+				break;
+			}
+			
+		}
+	</script>
 </html>
