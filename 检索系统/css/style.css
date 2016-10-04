@@ -239,4 +239,78 @@ footer p{
 	border-top: 1px solid #CCCCCC;
 	padding-top: 10px;
 	text-indent: 2em;
+	
+}
+/*搜索页面*/
+.searchBar{
+	position: relative;
+	border: 1px solid #CCCCCC;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px 50px;
+}
+.searchBar form{
+	height: 30px;
+	position: relative;
+	padding-left: 60px;
+	
+}
+.searchBar form input[type="text"]{
+	width: 500px;
+}
+.searchBar form select{
+	width: 100px;
+}
+.searchBar form .addSelect{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50px;
+	margin-right: 10px;
+}
+.searchBar button{
+	height:27px ;
+	width: 90px;
+	border-radius: 7px;
+	font-weight: bold;
+}
+.searchBar .searchStart{
+	margin-left: 60px;
+	background-color: #5B4947;
+	color: #BEAD92;
+	border: 1px solid #5B4947;
+}
+.searchBar .clearSearch{
+	margin-left: 10px;
+	background-color: #BEAD92;
+	color: #5B4947;
+	border: 1px solid #BEAD92;
+}
+.yearSelect{
+	border-top: 1px solid #CCCCCC;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+.yearSelect span{
+	margin-right: 10px;
+}
+.searchResult p{
+	font-weight: bold;
+}
+.searchResult table{
+	width: 100%;
+}
+.searchResult td{
+	border: 1px solid #CCCCCC;
+	height: 25px;
+}
+.searchResult table tr:nth-child(2n){
+	background-color: white;
+}
+.searchResult table tr:first-child{
+	background-color: #BEAD92;
+}
+.searchResult table tr:hover{
+	background-color: #7BA3A8;
+	cursor: pointer;
 }
