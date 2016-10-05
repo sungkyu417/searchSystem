@@ -58,3 +58,48 @@ function ywSearchShow(){
 	title.text("引文检索");
 	ywSearch.show();
 }
+var bookData={
+	bookName:"民法学",
+	isbn:"1234-5678",
+	price:"110",
+	author:"王利民",
+	publicitian:"法律出版社",
+	publicDate:"2-544",
+	citations:"1111",
+	storeNum:"10",
+	content:"《民法学》教材有以下特点：1.参加编写的人员一定是有着多年教学的经验"
+}
+var bookDetail='';
+function bookShow(){
+	var bookName=$(this).html();
+	console.log(bookName);
+	//后台获得数据
+	bookDetail+='<h3>图书详情</h3>';
+	bookDetail+='<div class="content">';
+	bookDetail+='<img alt="" title="民法学" />';
+	bookDetail+='<div class="contentInfo bookInfo">';
+	bookDetail+='	<ul>';
+	bookDetail+='		<li>基本信息</li>';
+	bookDetail+='		<li>书名：<span>'+bookData.bookName+'</span></li>';
+	bookDetail+='		<li>ISBN：<span>'+bookData.isbn+'</span></li>';
+	bookDetail+='		<li>定价：<span>'+bookData.price+'元</li>';
+	bookDetail+='		<li>作者/编者：<span>'+bookData.author+'</span>著</li>';
+	bookDetail+='		<li>出版社：<span>'+bookData.publicitian+'</span></li>';
+	bookDetail+='		<li>出版日期：<span>'+bookData.publicDate+'</span></li>';
+	bookDetail+='		</ul>';
+	bookDetail+='		<ul>';
+	bookDetail+='			<li>总被引次数：<span>'+bookData.citations+'</span></li>';
+	bookDetail+='			<li>馆藏数：&nbsp;&nbsp;<span>'+bookData.storeNum+'</span></li>';
+	bookDetail+='		</ul>';
+	bookDetail+='		</div>';
+	bookDetail+='		</div>';
+	bookDetail+='		<div class="recommend">';
+	bookDetail+='		<p class="p1">内容推荐</p>';
+	bookDetail+='		<p class="p2">'+bookData.content+'</p></div>';
+	initPage();
+	title.text("精品图书");
+	book.show();
+	$(".book").html(bookDetail);
+	
+	
+}
