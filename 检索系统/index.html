@@ -20,9 +20,12 @@
 	<body class="indexPage">
 		<div class="pageWhole">
 			<header>
+				<!--
+                	描述：单页面结构头部导航不变
+                -->
 				<div class="header-tags">
 					<ul>
-						<li><a href="#/index">首页</a></li>
+						<li><a href="#/main">首页</a></li>
 						<li><a href="#/search">文献检索</a></li>
 						<li><a href="#/ywSearch">引文检索</a></li>
 						<li><a href="#/journals">期刊目录</a></li>
@@ -33,37 +36,252 @@
 						<li>被引文献<span>80万</span>余篇</li>
 					</ul>
 				</div>
+				<!--
+                	描述：不同页面头部名称不同
+                -->
 				<div class="header-title">
 					<p>中国法律引证指数CLCI系统</p>
 				</div>
 			</header>
-			<div class="mainContent">
+			<!--
+            	作者：offline
+            	时间：2016-10-05
+            	描述：下面的部分不同页面不一样
+            -->
+            <!-- 首页，检索页面 -->
+			<div class="mainContent" style="display: block;">
+				<div class="simpleSearch">
+					<form>
+						<select id="searchCondition">
+						<option value="作者">作者</option>
+						<option value="机构">机构</option>
+						<option value="篇名">篇名</option>
+						<option value="关键词">关键词</option>
+						<option value="来源期刊">来源期刊</option>
+					</select>
+					<input type="text" id="searchWord"/>
+					<button onclick="mainPageSearch();">搜索</button>
+					<a href="#/search">高级检索>>></a>
+					</form>
+				</div>
+				<div class="visualPart" style="display: block;">
 				<div class="content1">
 					<ul>
 						<li>高被引期刊</li>
-						<li><a href="journal.html">法学家</a></li>
-						<li><a>河北法学</a></li>
+						<li><a href="#/journal">法学家</a></li>
+						<li><a href="">河北法学</a></li>
 						<li><a>法学</a></li>
 						<li><a>政法论坛</a></li>
 						<li><a>法商研究</a></li>
-						<li><a href="Journals.html">More...</a></li>
+						<li><a href="#/journals">More...</a></li>
 					</ul>
 					<ul>
 						<li>高被引著作</li>
-						<li><a href="book.html">马克思恩格斯全集</a></li>
+						<li><a onclick="bookShow();">马克思恩格斯全集</a></li>
 						<li><a>法理学</a></li>
 						<li><a>刑法学</a></li>
 						<li><a>法理学：法律哲学与...</a></li>
 						<li><a>民法总论</a></li>
+						<li><a href="#/books">More...</a></li>
+					</ul>
+					<ul>
+						<li>高被引作者</li>
+						<li><a href="book.html">周教授</a></li>
+						<li><a>王教授</a></li>
+						<li><a>李教授</a></li>
 						<li><a href="books.html">More...</a></li>
 					</ul>
 				</div>
 				<div class="content2">
 					<h3>来源文献及被引文献检索</h3>
-					<a><img src="img/图片1.png" /></a>
-					<a class="lastPic"><img src="img/图片2.png" /></a>
+					<img class="firstPic" src="img/图3.PNG" />
+					<a href="#/search"><img src="img/图片1.png" /></a>
+					<a href="#/ywSearch" class="lastPic"><img src="img/图片2.png" /></a>
 					<p>（点击图片进入检索页面）</p>
 				</div>
+			</div>
+			<div class="searchResult" id="mainPageResult" style="display: none;">
+				<p>检索结果：</p>
+				<table>
+						<tr>
+							<td>来源作者</td>
+							<td>来源篇名</td>
+							<td>来源期刊</td>
+							<td>出版时间</td>
+						</tr>
+						<tr>
+							<td>马庆林</td>
+							<td>法律语言学、法律语言——兼谈法律英语的特点</td>
+							<td>西安外国语学院学报</td>
+							<td>2003/03</td>
+						</tr>
+				</table>
+			</div>
+			</div>
+			<!--
+            	描述：期刊目录页面
+            -->
+			<div class="journals" style="display: none;">
+			<div class="sortBar">
+				<p><span>共100条记录，2页</span><span><a>首页</a><a>上页</a><a>下页</a><a>末页</a><input type="number" max="2" min="1"/>/2页 <button>转页</button></span></p>
+			</div>
+			<div class="journalsContent" id="journalsContent">
+
+			</div>
+			</div>
+			<!--
+            	作者：offline
+            	时间：2016-10-05
+            	描述：期刊详情页面
+            -->
+            <div class="journalContent" id="journalContent" style="display: none;">
+				
+			</div>
+			<!--
+            	描述：图书目录页面
+            -->
+            <div class="books" style="display: none;">
+			<div class="sortBar">
+				<p><span>共100条记录，2页</span><span><a>首页</a><a>上页</a><a>下页</a><a>末页</a><input type="number" max="2" min="1"/>/2页 <button>转页</button></span></p>
+			</div>
+			<div class="journalsContent" id="booksContent">
+		
+			</div>
+			</div>
+			<!--
+            	作者：offline
+            	时间：2016-10-05
+            	描述：图书详情页面
+            -->
+            <div class="journalContent book" style="display: none;">
+            	
+			</div>
+			<!--
+            	作者：offline
+            	时间：2016-10-05
+            	描述：来源文献检索页面
+            -->
+            <div class="search" style="display: none;">
+			<div class="searchBar">
+				<form>
+					<input type="text" />
+					<select>
+						<option value="作者">作者</option>
+						<option value="机构">机构</option>
+						<option value="篇名">篇名</option>
+						<option value="关键词">关键词</option>
+						<option value="来源期刊">来源期刊</option>
+					</select>
+					<input type="checkbox" />精确
+				</form>
+				<form id="addForm">
+					<select class="addSelect">
+						<option value="或">或</option>
+						<option value="和">和</option>
+						<option value="非">非</option>
+					</select>
+					<input type="text" />
+					<select>
+						<option value="作者">作者</option>
+						<option value="机构">机构</option>
+						<option value="篇名">篇名</option>
+						<option value="关键词">关键词</option>
+						<option value="来源期刊">来源期刊</option>
+					</select>
+					<input type="checkbox" />精确
+				</form>
+				<form id="addForm">
+					<select class="addSelect">
+						<option value="或">或</option>
+						<option value="和">和</option>
+						<option value="非">非</option>
+					</select>
+					<input type="text" />
+					<select>
+						<option value="作者">作者</option>
+						<option value="机构">机构</option>
+						<option value="篇名">篇名</option>
+						<option value="关键词">关键词</option>
+						<option value="来源期刊">来源期刊</option>
+					</select>
+					<input type="checkbox" />精确
+				</form>
+				<button class="searchStart" onclick="searchPageShow();">检索</button>
+				<button class="clearSearch">清除</button>
+				<div class="yearSelect">
+					<span>发文年代：</span>
+					<input type="radio" />&nbsp;&nbsp;从&nbsp;&nbsp;
+					<select>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+					</select>&nbsp;&nbsp;至&nbsp;&nbsp;
+					<select>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+					</select>
+				</div>
+			</div>
+			<div class="searchResult" id="searchPageResult">
+				
+			</div>
+			</div>
+			<!--
+            	作者：offline
+            	时间：2016-10-05
+            	描述：引文检索页面
+            -->
+            <div class="ywSearch" style="display: none;">
+			<div class="searchBar ywSearchBar">
+				<form>
+					<p><span>被引作者：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p><span>被引文献篇名：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p><span>被引文献期刊：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p><span>被引文献年代：</span><input type="text" /><input type="checkbox" />&nbsp;&nbsp;精确&nbsp;&nbsp;</p>
+					<p class="selectYear"><span style="font-size: 14px;">被引年份：</span><input type="checkbox"/ value="2001">2001<input type="checkbox"/ value="2002">2002
+					<input type="checkbox"/ value="2003">2003<input type="checkbox"/ value="2004">2004<input type="checkbox"/ value="2005">2005
+					<input type="checkbox"/ value="2006">2006<input type="checkbox"/ value="2007">2007<input type="checkbox"/ value="2008">2008
+					<input type="checkbox"/ value="2009">2009<input type="checkbox"/ value="2010">2010
+					<input type="checkbox"/ value="2011">2011<input type="checkbox"/ value="2012">2012<input type="checkbox"/ value="2013">2013
+					<input type="checkbox"/ value="2014">2014<input type="checkbox"/ value="2015">2015<input type="checkbox"/ value="2016">2016
+					<input type="checkbox"/ value="all">全选</p>
+					
+					<button class="searchStart" onclick="ywSearchPageShow()">检索</button>
+					<button class="clearSearch">清除</button>
+				</form>
+			</div>
+			<div class="searchResult" id="ywSearchResult">
+				<!--<p>检索结果：</p>
+				<table>
+						<tr>
+							<td>来源作者</td>
+							<td>来源篇名</td>
+							<td>来源期刊</td>
+							<td>出版时间</td>
+						</tr>
+						<tr onclick="articleShow();">
+							<td>马庆林</td>
+							<td>法律语言学、法律语言——兼谈法律英语的特点</td>
+							<td>西安外国语学院学报</td>
+							<td>2003/03</td>
+						</tr>
+				</table>-->
+			</div>
+			</div>
+			<!--
+            	作者：offline
+            	时间：2016-10-05
+            	描述：文献详情
+            -->
+            <div class="articleContent" style="display: none;">
+				
 			</div>
 		</div>
 		<footer>
@@ -72,26 +290,27 @@
 			<p>中国社会科学研究评价中心 版权所有 地址：南京市汉口路22号 邮编：210093</p>
 		</footer>
 	</body>
+	<script src="js/router.js"></script>
 	<script>
 		
 		window.onhashchange = function(){
 			var hash = location.hash;
 			hash = hash.substring(1, hash.length);
 			switch(hash){
-				case "/index":
-				location.href="index.html";
+				case "/main":
+				mainShow();
 				break;
 				case "/search":
-				location.href="search.html";
+				searchShow();
 				break;
 				case "/ywSearch":
-				location.href="ywSearch.html";
+				ywSearchShow();
 				break;
 				case "/journals":
-				location.href="Journals.html";
+				journalsShow();
 				break;
-				case "/ywSearch":
-				location.href="ywSearch.html";
+				case "/books":
+				booksShow();
 				break;
 			}
 			
