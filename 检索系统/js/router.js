@@ -158,8 +158,8 @@ function booksShow(){
 	
 }
 function bookShow(){
-	var bookName=$(this).val();
-	console.log(bookName);
+//	var bookName=$(this).val();
+//	console.log(bookName);
 	//此处应该根据booksShow函数中获得的数据提取数据
 	
 	var bookDetail='';
@@ -243,14 +243,8 @@ function articleShow(){
 	$(".articleContent").html(articleDetail);
 }
 /*主页面及主页面检索之后页面展示 */
-function mainShow(){
-	initPage();
-	title.text("中国法律引证指数CLCI系统");
-	main.show();
-}
-function mainPageSearch(){
-	//判断检索条件
-	var searchCondition=$("#searchCondition").val();
+//检索条件转换
+function convertSearchCondition(searchCondition){
 	switch(searchCondition){
 		case "作者":
 		searchCondition="zzmc";
@@ -268,9 +262,25 @@ function mainPageSearch(){
 		searchCondition="qkno";
 		break;
 	}
+	return searchCondition;
+}
+//主页面简单检索
+function mainShow(){
+	initPage();
+	title.text("中国法律引证指数CLCI系统");
+	main.show();
+	$(".visualPart").show();
+	$("#mainPageResult").hide();
+}
+function mainPageSearch(){
+	//判断检索条件并转换为属性名
+	var searchCondition=$("#searchCondition").val();
+	searchCondition=convertSearchCondition(searchCondition);
 	//检索字段
 	var searchWord=$("#searchWord").val();
-
+	//根据检索条件获得articleDatas
+	
+	
 	var searchResult='';
 	searchResult+='<p>检索结果：</p><table><tr><td>来源作者</td><td>来源篇名</td><td>来源期刊</td><td>出版时间</td></tr>';
 	$(articleDatas).each(function(index,item){
@@ -284,13 +294,71 @@ function mainPageSearch(){
 	$("#mainPageResult").html(searchResult);
 
 }
+//高级检索页面显示
 function searchShow(){
 	initPage();
 	title.text("文献检索");
 	search.show();
+	$("#searchPageResult").hide();
+}
+function searchPageShow(){
+	var searchResult='';
+	searchResult+='<p>检索结果：</p><table><tr><td>来源作者</td><td>来源篇名</td><td>来源期刊</td><td>出版时间</td></tr>';
+	$(articleDatas).each(function(index,item){
+		searchResult+='<tr onclick="articleShow();"><td>'+item.zzmc+'</td><td>'+item.lypm+'</td><td>'+item.qkno+'</td><td>'+
+					item.lwnd+'</td></tr>';
+	});
+	
+	searchResult+='</table>';
+	$("#searchPageResult").show().html(searchResult);
+}
+//引文页面检索显示,引文文献详情与来源文献详情不一样
+var ywArticleData={
+	ywzz:"sssssss",
+	ywpm:"uuuuuu",
+	ywqk:"nnnnnn",
+	ywnd:"gggggg",
+	ywcbd:"kkkkk",
+	ywcbs:"yyyyy",
+	wzdm:"uuuuu"
+}
+var ywArticleData1={
+	ywzz:"sssssss",
+	ywpm:"uuuuuu",
+	ywqk:"nnnnnn",
+	ywnd:"gggggg",
+	ywcbd:"kkkkk",
+	ywcbs:"yyyyy",
+	wzdm:"uuuuu"
+}
+var ywArticleDatas=[];
+ywArticleDatas.push(ywArticleData);
+ywArticleDatas.push(ywArticleData1);
+function ywArticleShow(){
+	var articleDetail='';
+	articleDetail+='<table><tr><td>引文作者</td><td>'+ywArticleData.ywzz+'</td></tr><tr><td>引文篇名</td><td>'+ywArticleData.ywpm
+					+'</td></tr><tr><td>引文期刊</td><td>'+ywArticleData.ywqk+'</td></tr><tr><td>引文年代</td><td>'+ywArticleData.ywnd
+					+'</td></tr><tr><td>引文出版地</td><td>'+ywArticleData.ywcbd+'</td></tr><tr><td>引文出版社</td><td>'+ywArticleData.ywcbs
+					+'</td></tr><tr><td>文种代码</td><td>'+ywArticleData.wzdm+'</td></tr></table>';
+	initPage();
+	title.text("文献详情");
+	article.show();
+	$(".articleContent").html(articleDetail);
 }
 function ywSearchShow(){
 	initPage();
 	title.text("引文检索");
 	ywSearch.show();
+	$("#ywSearchResult").hide();
+}
+function ywSearchPageShow(){
+	var searchResult='';
+	searchResult+='<p>检索结果：</p><table><tr><td>引文作者</td><td>引文篇名</td><td>引文期刊</td><td>引文年代</td></tr>';
+	$(ywArticleDatas).each(function(index,item){
+		searchResult+='<tr onclick="ywArticleShow();"><td>'+item.ywzz+'</td><td>'+item.ywpm+'</td><td>'+item.ywqk+'</td><td>'+
+					item.ywnd+'</td></tr>';
+	});
+	
+	searchResult+='</table>';
+	$("#ywSearchResult").show().html(searchResult);
 }

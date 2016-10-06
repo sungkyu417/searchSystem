@@ -95,8 +95,8 @@
 				<div class="content2">
 					<h3>来源文献及被引文献检索</h3>
 					<img class="firstPic" src="img/图3.PNG" />
-					<a><img src="img/图片1.png" /></a>
-					<a class="lastPic"><img src="img/图片2.png" /></a>
+					<a href="#/search"><img src="img/图片1.png" /></a>
+					<a href="#/ywSearch" class="lastPic"><img src="img/图片2.png" /></a>
 					<p>（点击图片进入检索页面）</p>
 				</div>
 			</div>
@@ -206,7 +206,7 @@
 					</select>
 					<input type="checkbox" />精确
 				</form>
-				<button class="searchStart">检索</button>
+				<button class="searchStart" onclick="searchPageShow();">检索</button>
 				<button class="clearSearch">清除</button>
 				<div class="yearSelect">
 					<span>发文年代：</span>
@@ -229,22 +229,8 @@
 					</select>
 				</div>
 			</div>
-			<div class="searchResult">
-				<p>检索结果：</p>
-				<table>
-						<tr>
-							<td>来源作者</td>
-							<td>来源篇名</td>
-							<td>来源期刊</td>
-							<td>出版时间</td>
-						</tr>
-						<tr>
-							<td>马庆林</td>
-							<td>法律语言学、法律语言——兼谈法律英语的特点</td>
-							<td>西安外国语学院学报</td>
-							<td>2003/03</td>
-						</tr>
-				</table>
+			<div class="searchResult" id="searchPageResult">
+				
 			</div>
 			</div>
 			<!--
@@ -267,12 +253,12 @@
 					<input type="checkbox"/ value="2014">2014<input type="checkbox"/ value="2015">2015<input type="checkbox"/ value="2016">2016
 					<input type="checkbox"/ value="all">全选</p>
 					
-					<button class="searchStart">检索</button>
+					<button class="searchStart" onclick="ywSearchPageShow()">检索</button>
 					<button class="clearSearch">清除</button>
 				</form>
 			</div>
-			<div class="searchResult">
-				<p>检索结果：</p>
+			<div class="searchResult" id="ywSearchResult">
+				<!--<p>检索结果：</p>
 				<table>
 						<tr>
 							<td>来源作者</td>
@@ -286,7 +272,7 @@
 							<td>西安外国语学院学报</td>
 							<td>2003/03</td>
 						</tr>
-				</table>
+				</table>-->
 			</div>
 			</div>
 			<!--
