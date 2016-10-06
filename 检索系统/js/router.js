@@ -16,13 +16,14 @@ all.push(book);
 all.push(search);
 all.push(ywSearch);
 all.push(article);
+//初始化页面
 function initPage(){
 	
 	$(all).each(function(index,item){
 		item.hide();
 	});
 }
-
+//每部分页面显示
 function mainShow(){
 	initPage();
 	title.text("中国法律引证指数CLCI系统");
@@ -38,11 +39,7 @@ function journalShow(){
 	title.text("精品期刊");
 	journal.show();
 }
-function booksShow(){
-	initPage();
-	title.text("精品图书");
-	books.show();
-}
+
 function bookShow(){
 	initPage();
 	title.text("精品期刊");
@@ -58,22 +55,78 @@ function ywSearchShow(){
 	title.text("引文检索");
 	ywSearch.show();
 }
+
 var bookData={
 	bookName:"民法学",
 	isbn:"1234-5678",
 	price:"110",
 	author:"王利民",
 	publicitian:"法律出版社",
+	address:"Beijing",
+	tel:"110001001",
 	publicDate:"2-544",
+	cnId:"110",
 	citations:"1111",
 	storeNum:"10",
 	content:"《民法学》教材有以下特点：1.参加编写的人员一定是有着多年教学的经验"
+	}
+var bookData1={
+	bookName:"民法学",
+	isbn:"1234-5678",
+	price:"110",
+	author:"王利民",
+	publicitian:"法律出版社",
+	address:"Beijing",
+	tel:"110001001",
+	publicDate:"2-544",
+	cnId:"110",
+	citations:"1111",
+	storeNum:"10",
+	content:"《民法学》教材有以下特点：1.参加编写的人员一定是有着多年教学的经验"
+	}
+var bookDatas=[];
+bookDatas.push(bookData);
+bookDatas.push(bookData1);
+function booksShow(){
+	//此处应从后台获取数据
+	//传入参数 每页显示条数，页数
+	//获得书记详细信息
+	var booksInfo='';
+	console.log(bookDatas);
+	$(bookDatas).each(function(index,item){
+	booksInfo+='<div class="content">';
+	booksInfo+='	<img />';
+	booksInfo+='	<h4><a onclick="bookShow()">'+item.bookName+'</a></h4>';
+	
+	booksInfo+='<p>主办单位：'+item.publicitian+'</p>';
+	booksInfo+='<p>通讯地址：<span id="address">'+item.address+'</span></p>';
+	booksInfo+='<p>联系电话：<span id="tel">'+item.tel+'</span></p>';
+	booksInfo+='<p>CN号： <span id="CNid">'+item.cnId+'</span></p>';
+	booksInfo+='</div>';
+	});
+//	booksInfo+='<div class="content">';
+//	booksInfo+='	<img />';
+//	booksInfo+='	<h4><a onclick="bookShow()">'+bookData.bookName+'</a></h4>';
+//	
+//	booksInfo+='<p>主办单位：'+bookData.publicitian+'</p>';
+//	booksInfo+='<p>通讯地址：<span id="address">'+bookData.address+'</span></p>';
+//	booksInfo+='<p>联系电话：<span id="tel">'+bookData.tel+'</span></p>';
+//	booksInfo+='<p>CN号： <span id="CNid">'+bookData.cnId+'</span></p>';
+//	booksInfo+='</div>';
+	initPage();
+	title.text("精品图书");
+	books.show();
+	$(".journalsContent").html(booksInfo);
+	
+	
 }
-var bookDetail='';
 function bookShow(){
 	var bookName=$(this).html();
 	console.log(bookName);
-	//后台获得数据
+	//此处应该根据booksShow函数中获得的数据提取数据
+	
+	var bookDetail='';
+	
 	bookDetail+='<h3>图书详情</h3>';
 	bookDetail+='<div class="content">';
 	bookDetail+='<img alt="" title="民法学" />';
