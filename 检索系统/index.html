@@ -52,16 +52,16 @@
 			<div class="mainContent" style="display: block;">
 				<div class="simpleSearch">
 					<form>
-						<select>
+						<select id="searchCondition">
 						<option value="作者">作者</option>
 						<option value="机构">机构</option>
 						<option value="篇名">篇名</option>
 						<option value="关键词">关键词</option>
 						<option value="来源期刊">来源期刊</option>
 					</select>
-					<input type="text" />
-					<button>搜索</button>
-					<a>高级检索>>></a>
+					<input type="text" id="searchWord"/>
+					<button onclick="mainPageSearch();">搜索</button>
+					<a href="#/search">高级检索>>></a>
 					</form>
 				</div>
 				<div class="visualPart" style="display: block;">
@@ -100,7 +100,7 @@
 					<p>（点击图片进入检索页面）</p>
 				</div>
 			</div>
-			<div class="searchResult" style="display: none;">
+			<div class="searchResult" id="mainPageResult" style="display: none;">
 				<p>检索结果：</p>
 				<table>
 						<tr>
@@ -125,39 +125,8 @@
 			<div class="sortBar">
 				<p><span>共100条记录，2页</span><span><a>首页</a><a>上页</a><a>下页</a><a>末页</a><input type="number" max="2" min="1"/>/2页 <button>转页</button></span></p>
 			</div>
-			<div class="journalsContent">
-				<div class="content">
-					<img />
-					<h4><a>比较法研究</a></h4>
-					<p>主办单位：中国政法大学比较法研究所</p>
-					<p>通讯地址：<span id="address"></span></p>
-					<p>联系电话：<span id="tel"></span></p>
-					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
-				</div>
-				<div class="content">
-					<img />
-					<h4><a>比较法研究</a></h4>
-					<p>主办单位：中国政法大学比较法研究所</p>
-					<p>通讯地址：<span id="address"></span></p>
-					<p>联系电话：<span id="tel"></span></p>
-					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
-				</div>
-				<div class="content">
-					<img />
-					<h4><a>比较法研究</a></h4>
-					<p>主办单位：中国政法大学比较法研究所</p>
-					<p>通讯地址：<span id="address"></span></p>
-					<p>联系电话：<span id="tel"></span></p>
-					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
-				</div>
-				<div class="content">
-					<img />
-					<h4><a>比较法研究</a></h4>
-					<p>主办单位：中国政法大学比较法研究所</p>
-					<p>通讯地址：<span id="address"></span></p>
-					<p>联系电话：<span id="tel"></span></p>
-					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
-				</div>
+			<div class="journalsContent" id="journalsContent">
+
 			</div>
 			</div>
 			<!--
@@ -165,35 +134,8 @@
             	时间：2016-10-05
             	描述：期刊详情页面
             -->
-            <div class="journalContent" style="display: none;">
-				<h3>期刊详情</h3>
-				<div class="content">
-					<img alt="中国法学" title="中国法学" />
-					<div class="contentInfo">
-						<h4>中国法学</h4>
-						<h5>China Legal Science</h5>
-						<ul>
-							<li>基本信息</li>
-							<li>主办单位：<span>中国法学会</span></li>
-							<li>出版周期：<span>双月</span></li>
-							<li>ISSN：<span>1234-5678</span></li>
-							<li>CN：<span>11-1130</span></li>
-							<li>出版地：<span>北京市</span></li>
-							<li>语种：<span>中文</span></li>
-							<li>开本：<span>大16开</span></li>
-							<li>邮发代号：<span>2-544</span></li>
-							<li>创刊时间：<span>1984</span></li>
-						</ul>
-						<ul>
-							<li>评价信息</li>
-							<li>它引影响因子：<span></span></li>
-							<li>总被引次数：<span></span></li>
-							<li>被引广度：<span></span></li>
-							<li>基金论文比：<span></span></li>
-							<li>作者地区广度：<span></span></li>
-						</ul>
-					</div>
-				</div>
+            <div class="journalContent" id="journalContent" style="display: none;">
+				
 			</div>
 			<!--
             	描述：图书目录页面
@@ -202,15 +144,8 @@
 			<div class="sortBar">
 				<p><span>共100条记录，2页</span><span><a>首页</a><a>上页</a><a>下页</a><a>末页</a><input type="number" max="2" min="1"/>/2页 <button>转页</button></span></p>
 			</div>
-			<div class="journalsContent">
-				<!--<div class="content">
-					<img />
-					<h4><a>比较法研究</a></h4>
-					<p>主办单位：中国政法大学比较法研究所</p>
-					<p>通讯地址：<span id="address"></span></p>
-					<p>联系电话：<span id="tel"></span></p>
-					<p>CN号： <span id="CNid">CN11-3171/D</span></p>
-				</div>-->
+			<div class="journalsContent" id="booksContent">
+		
 			</div>
 			</div>
 			<!--
@@ -219,35 +154,7 @@
             	描述：图书详情页面
             -->
             <div class="journalContent book" style="display: none;">
-				<!--<h3>图书详情</h3>
-				<div class="content">
-					<img alt="" title="民法学" />
-					<div class="contentInfo bookInfo">
-						<ul>
-							<li>基本信息</li>
-							<li>书名：<span>民法学</span></li>
-							<li>ISBN：<span>1234-5678</span></li>
-							<li>定价：<span>110</span>元</li>
-							<li>作者/编者：<span>王利民</span>著</li>
-							<li>出版社：<span>法律出版社</span></li>
-							<li>开本：<span>大16开</span></li>
-							<li>出版日期：<span>2-544</span></li>
-						</ul>
-						<ul>
-							<li>总被引次数：<span>1111</span></li>
-							<li>馆藏数：&nbsp;&nbsp;<span>10</span></li>
-						</ul>
-					</div>
-				</div>
-				<div class="recommend">
-					<p class="p1">内容推荐</p>
-					<p class="p2">《民法学》教材有以下特点：1.参加编写的人员一定是有着多年教学的经验，而且教学效果非常突出，这次参编的人员在其所在学校都是教学骨干，并且从事专门教学工作多年，教学效果好的教师；
-						2.要求编写人员认真负责，以一个教师的角色而不是以科研的角度编写，避免把教材写成专著；3.注意体系化，必须给学生一个完整的知识结构，避免知识缺漏。
-						《民法学》的主要内容包括五部分：总则、物权、债权、合同法、亲属法与继承法。<br />
-本套普通高等教育“十一五”国家级规划教材的出版，凝结了我社二十年法学教材出版经验和众多知名学者的理论成果。
-在江平、张晋藩、陈光中、应松年等法学界泰斗级教授的鼎力支持下，在许多中青年法学家的积极参与下，我们相信，
-本套教材一定会给读者带来惊喜。我们的出版思路是坚持教材内容必须与教学大纲紧密结合的原则。各学科以教育部规定的教学大纲为蓝本，紧贴课堂教学实际，力求达到以“基本概念、基本原理、基础知识”为主要内容，并体现最新的学术动向和研究成果。在形式的设置上，坚持形式服务于内容、教材服务于学生的理念。采取灵活多样的体例形式，根据不同学科的特点，通过学习目的与要求、思考题、资料链接、案例精选等多种形式阐释教材内容，争取使教材功能在最大程度上得到优化，便于在校生掌握理论知识。概括而言，本套教材是中国政法大学出版社多年来对法学教材深入研究与探索的集中体现。</p>
-				</div>-->
+            	
 			</div>
 			<!--
             	作者：offline
@@ -373,7 +280,7 @@
 							<td>来源期刊</td>
 							<td>出版时间</td>
 						</tr>
-						<tr>
+						<tr onclick="articleShow();">
 							<td>马庆林</td>
 							<td>法律语言学、法律语言——兼谈法律英语的特点</td>
 							<td>西安外国语学院学报</td>
@@ -388,52 +295,7 @@
             	描述：文献详情
             -->
             <div class="articleContent" style="display: none;">
-				<table>
-					<tr>
-						<td>篇名</td>
-						<td>西方文明起源时期的法律人——以韦伯的法律社会学为分析框架</td>
-					</tr>
-					<tr>
-						<td>英文篇名</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>作者及机构</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>文献类型</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>学科类别</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>中图类号</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>基金项目</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>来源期刊</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>年代</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>关键词</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>参考文献</td>
-						<td></td>
-					</tr>
-				</table>
+				
 			</div>
 		</div>
 		<footer>

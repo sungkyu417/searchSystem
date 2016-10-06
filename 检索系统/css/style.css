@@ -136,6 +136,7 @@ a:hover{text-decoration: none;}
 	color: #BEAD92;
 	border: 1px solid #5B4947;
 	margin-left: 0;
+	border-radius: 2px;
 }
 .simpleSearch a{
 	margin-left: 10px;
@@ -348,6 +349,10 @@ footer p{
 	background-color: #7BA3A8;
 	cursor: pointer;
 }
+.searchResult table tr:first-child:hover{
+	background-color: #BEAD92;
+	cursor: default;
+}
 .ywSearchBar{
 	height: 240px;
 	padding-left: 10px;
@@ -384,4 +389,5 @@ footer p{
 }
 .articleContent table td:first-child{
 	background-color: #c9cabb;
+	width: 130px;
 }
