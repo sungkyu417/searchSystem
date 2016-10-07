@@ -95,13 +95,14 @@ function journalShow(){
 	journalDetail+=journalData.xkfl+'</span></li></ul><ul><li>评价信息</li><li>它引影响因子：<span>';
 	journalDetail+=journalData.tyyz+'</span></li><li>总被引次数：<span>'+journalData.bycs+'</span></li><li>被引广度：<span>';
 	journalDetail+=journalData.bygd+'</span></li><li>基金论文比：<span>'+journalData.jjlwb+'</span></li><li>作者地区广度：<span>';
-	journalDetail+=journalData.zzdqgd+'</span></li></ul></div></div>';
-	initPage();
-	title.text("精品期刊");
-	journal.show();
-	$("#journalContent").html(journalDetail);
+	journalDetail+=journalData.zzdqgd+'</span></li></ul></div></div><p class="returnPage"><a onClick="returnListPage();">返回主页面</a></p>';
+	journals.hide();
+	$("#journalContent").show().html(journalDetail);
 }
-
+function returnListPage(){
+	$("#journalContent").hide();
+	journals.show();
+}
 /*下面为图书目录页面及图书详情页面展示*/
 var bookData={
 	bookName:"民法学",
@@ -185,12 +186,16 @@ function bookShow(){
 	bookDetail+='		</div>';
 	bookDetail+='		<div class="recommend">';
 	bookDetail+='		<p class="p1">内容推荐</p>';
-	bookDetail+='		<p class="p2">'+bookData.content+'</p></div>';
+	bookDetail+='		<p class="p2">'+bookData.content+'</p></div><p class="returnPage"><a onClick="returnBookListPage();">返回主页面</a></p>';
 	initPage();
 	title.text("精品图书");
 	book.show();
 	$(".book").html(bookDetail);
 		
+}
+function returnBookListPage(){
+	$(".book").hide();
+	books.show();
 }
 /*文献详情页展示 */
 //数据来自于后台，在检索后一次性载入以备文献详情查看。
@@ -229,19 +234,7 @@ var articleData1={
 var articleDatas=[];
 articleDatas.push(articleData);
 articleDatas.push(articleData1);
-function articleShow(){
-	var articleDetail='';
-	articleDetail+='<table><tr><td>篇名</td><td>'+articleData.lypm+'</td></tr><tr><td>英文篇名</td><td>'+articleData.ywpm
-					+'</td></tr><tr><td>作者及机构</td><td>'+articleData.zzmc+'</td></tr><tr><td>文献类型</td><td>'+articleData.wxlx
-					+'</td></tr><tr><td>学科类别</td><td>'+articleData.xkfl+'</td></tr><tr><td>中图类号</td><td>'+articleData.ztlh
-					+'</td></tr><tr><td>基金项目</td><td>'+articleData.jjlb+'</td></tr><tr><td>来源期刊</td><td>'+articleData.qkno
-					+'</td></tr><tr><td>年代</td><td>'+articleData.lwnd+'</td></tr><tr><td>关键词</td><td>'+articleData.byc
-					+'</td></tr><tr><td>参考文献</td><td>'+articleData.ckwx+'</td></tr></table>';
-	initPage();
-	title.text("文献详情");
-	article.show();
-	$(".articleContent").html(articleDetail);
-}
+
 /*主页面及主页面检索之后页面展示 */
 //检索条件转换
 function convertSearchCondition(searchCondition){
@@ -264,7 +257,33 @@ function convertSearchCondition(searchCondition){
 	}
 	return searchCondition;
 }
+function convertLuoJiFu(luojifu){
+	switch(luojifu){
+		case "或":
+		luojifu="or";
+		break;
+		case "和":
+		luojifu="and";
+		break;
+		case "非":
+		luojifu="not";
+		break;
+	}
+}
 //主页面简单检索
+function mainPageArticleShow(){
+	var articleDetail='';
+	articleDetail+='<table><tr><td>篇名</td><td>'+articleData.lypm+'</td></tr><tr><td>英文篇名</td><td>'+articleData.ywpm
+					+'</td></tr><tr><td>作者及机构</td><td>'+articleData.zzmc+'</td></tr><tr><td>文献类型</td><td>'+articleData.wxlx
+					+'</td></tr><tr><td>学科类别</td><td>'+articleData.xkfl+'</td></tr><tr><td>中图类号</td><td>'+articleData.ztlh
+					+'</td></tr><tr><td>基金项目</td><td>'+articleData.jjlb+'</td></tr><tr><td>来源期刊</td><td>'+articleData.qkno
+					+'</td></tr><tr><td>年代</td><td>'+articleData.lwnd+'</td></tr><tr><td>关键词</td><td>'+articleData.byc
+					+'</td></tr><tr><td>参考文献</td><td>'+articleData.ckwx+'</td></tr></table><p class="returnPage"><a onClick="returnMainPage();">返回检索页面</a></p>';
+	initPage();
+	title.text("文献详情");
+	article.show();
+	$(".articleContent").html(articleDetail);
+}
 function mainShow(){
 	initPage();
 	title.text("中国法律引证指数CLCI系统");
@@ -279,12 +298,12 @@ function mainPageSearch(){
 	//检索字段
 	var searchWord=$("#searchWord").val();
 	//根据检索条件获得articleDatas
-	
+	console.log($("#form1").serialize());
 	
 	var searchResult='';
 	searchResult+='<p>检索结果：</p><table><tr><td>来源作者</td><td>来源篇名</td><td>来源期刊</td><td>出版时间</td></tr>';
 	$(articleDatas).each(function(index,item){
-		searchResult+='<tr onclick="articleShow();"><td>'+item.zzmc+'</td><td>'+item.lypm+'</td><td>'+item.qkno+'</td><td>'+
+		searchResult+='<tr onclick="mainPageArticleShow();"><td>'+item.zzmc+'</td><td>'+item.lypm+'</td><td>'+item.qkno+'</td><td>'+
 					item.lwnd+'</td></tr>';
 	});
 	
@@ -294,7 +313,27 @@ function mainPageSearch(){
 	$("#mainPageResult").html(searchResult);
 
 }
+function returnMainPage(){
+	title.text("中国法律引证指数CLCI系统");
+	main.show();
+	$("#mainPageResult").show();
+	$(".articleContent").hide();
+	
+}
 //高级检索页面显示
+function searchPageArticleShow(){
+	var articleDetail='';
+	articleDetail+='<table><tr><td>篇名</td><td>'+articleData.lypm+'</td></tr><tr><td>英文篇名</td><td>'+articleData.ywpm
+					+'</td></tr><tr><td>作者及机构</td><td>'+articleData.zzmc+'</td></tr><tr><td>文献类型</td><td>'+articleData.wxlx
+					+'</td></tr><tr><td>学科类别</td><td>'+articleData.xkfl+'</td></tr><tr><td>中图类号</td><td>'+articleData.ztlh
+					+'</td></tr><tr><td>基金项目</td><td>'+articleData.jjlb+'</td></tr><tr><td>来源期刊</td><td>'+articleData.qkno
+					+'</td></tr><tr><td>年代</td><td>'+articleData.lwnd+'</td></tr><tr><td>关键词</td><td>'+articleData.byc
+					+'</td></tr><tr><td>参考文献</td><td>'+articleData.ckwx+'</td></tr></table><p class="returnPage"><a onClick="returnSearchPage();">返回检索页面</a></p>';
+	initPage();
+	title.text("文献详情");
+	article.show();
+	$(".articleContent").html(articleDetail);
+}
 function searchShow(){
 	initPage();
 	title.text("文献检索");
@@ -302,15 +341,31 @@ function searchShow(){
 	$("#searchPageResult").hide();
 }
 function searchPageShow(){
+	//检索字段提取
+//	var selectCondition1=convertSearchCondition($("#searchCondition1").val()),
+//		select1=$("#search1").val();
+//	var selectCondition2=convertSearchCondition($("#searchCondition2").val()),
+//		select2=$("#search2").val();
+//	var selectCondition3=convertSearchCondition($("#searchCondition3").val()),
+//		select3=$("#search3").val();
+//	var luojifu1=convertLuoJiFu(("#luojifu1").val());
+//	var luojifu2=convertLuoJiFu(("#luojifu2").val());
+
 	var searchResult='';
 	searchResult+='<p>检索结果：</p><table><tr><td>来源作者</td><td>来源篇名</td><td>来源期刊</td><td>出版时间</td></tr>';
 	$(articleDatas).each(function(index,item){
-		searchResult+='<tr onclick="articleShow();"><td>'+item.zzmc+'</td><td>'+item.lypm+'</td><td>'+item.qkno+'</td><td>'+
+		searchResult+='<tr onclick="searchPageArticleShow();"><td>'+item.zzmc+'</td><td>'+item.lypm+'</td><td>'+item.qkno+'</td><td>'+
 					item.lwnd+'</td></tr>';
 	});
 	
 	searchResult+='</table>';
 	$("#searchPageResult").show().html(searchResult);
+}
+function returnSearchPage(){
+	title.text("文献检索");
+	search.show();
+	$("#searchPageResult").show();
+	$(".articleContent").hide();
 }
 //引文页面检索显示,引文文献详情与来源文献详情不一样
 var ywArticleData={
@@ -339,7 +394,7 @@ function ywArticleShow(){
 	articleDetail+='<table><tr><td>引文作者</td><td>'+ywArticleData.ywzz+'</td></tr><tr><td>引文篇名</td><td>'+ywArticleData.ywpm
 					+'</td></tr><tr><td>引文期刊</td><td>'+ywArticleData.ywqk+'</td></tr><tr><td>引文年代</td><td>'+ywArticleData.ywnd
 					+'</td></tr><tr><td>引文出版地</td><td>'+ywArticleData.ywcbd+'</td></tr><tr><td>引文出版社</td><td>'+ywArticleData.ywcbs
-					+'</td></tr><tr><td>文种代码</td><td>'+ywArticleData.wzdm+'</td></tr></table>';
+					+'</td></tr><tr><td>文种代码</td><td>'+ywArticleData.wzdm+'</td></tr></table><p class="returnPage"><a onClick="returnywSearchPage();">返回检索页面</a></p>';
 	initPage();
 	title.text("文献详情");
 	article.show();
@@ -361,4 +416,10 @@ function ywSearchPageShow(){
 	
 	searchResult+='</table>';
 	$("#ywSearchResult").show().html(searchResult);
+}
+function returnywSearchPage(){
+	title.text("引文检索");
+	ywSearch.show();
+	$("#ywSearchResult").show();
+	$(".articleContent").hide();
 }

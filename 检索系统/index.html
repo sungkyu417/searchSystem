@@ -51,7 +51,7 @@
             <!-- 首页，检索页面 -->
 			<div class="mainContent" style="display: block;">
 				<div class="simpleSearch">
-					<form>
+					<form id="form1">
 						<select id="searchCondition">
 						<option value="作者">作者</option>
 						<option value="机构">机构</option>
@@ -122,6 +122,7 @@
             	描述：期刊目录页面
             -->
 			<div class="journals" style="display: none;">
+				
 			<div class="sortBar">
 				<p><span>共100条记录，2页</span><span><a>首页</a><a>上页</a><a>下页</a><a>末页</a><input type="number" max="2" min="1"/>/2页 <button>转页</button></span></p>
 			</div>
@@ -164,8 +165,8 @@
             <div class="search" style="display: none;">
 			<div class="searchBar">
 				<form>
-					<input type="text" />
-					<select>
+					<input type="text" id="search1" />
+					<select id="searchCondition1">
 						<option value="作者">作者</option>
 						<option value="机构">机构</option>
 						<option value="篇名">篇名</option>
@@ -175,13 +176,13 @@
 					<input type="checkbox" />精确
 				</form>
 				<form id="addForm">
-					<select class="addSelect">
+					<select class="addSelect" id="luojifu1">
 						<option value="或">或</option>
 						<option value="和">和</option>
 						<option value="非">非</option>
 					</select>
-					<input type="text" />
-					<select>
+					<input type="text"  id="search2"/>
+					<select id="searchCondition2">
 						<option value="作者">作者</option>
 						<option value="机构">机构</option>
 						<option value="篇名">篇名</option>
@@ -191,13 +192,13 @@
 					<input type="checkbox" />精确
 				</form>
 				<form id="addForm">
-					<select class="addSelect">
+					<select class="addSelect" id="luojifu2">
 						<option value="或">或</option>
 						<option value="和">和</option>
 						<option value="非">非</option>
 					</select>
-					<input type="text" />
-					<select>
+					<input type="text" id="search3"/>
+					<select id="searchCondition3">
 						<option value="作者">作者</option>
 						<option value="机构">机构</option>
 						<option value="篇名">篇名</option>
@@ -207,7 +208,7 @@
 					<input type="checkbox" />精确
 				</form>
 				<button class="searchStart" onclick="searchPageShow();">检索</button>
-				<button class="clearSearch">清除</button>
+				<button class="clearSearch" onclick="clearSelect();">清除</button>
 				<div class="yearSelect">
 					<span>发文年代：</span>
 					<input type="radio" />&nbsp;&nbsp;从&nbsp;&nbsp;
