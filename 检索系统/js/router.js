@@ -65,7 +65,7 @@ var journalData1={
 var journalDatas=[];
 journalDatas.push(journalData);
 journalDatas.push(journalData1);
-
+//期刊列表展示
 function journalsShow(){
 	var journalsInfo='';
 	console.log(journalDatas);
@@ -85,6 +85,7 @@ function journalsShow(){
 	journals.show();
 	$("#journalsContent").html(journalsInfo);
 }
+//期刊详情页
 function journalShow(){
 	var journalDetail='';
 	journalDetail+='<h3>期刊详情</h3>';
@@ -99,6 +100,7 @@ function journalShow(){
 	journals.hide();
 	$("#journalContent").show().html(journalDetail);
 }
+//返回期刊列表页
 function returnListPage(){
 	$("#journalContent").hide();
 	journals.show();
@@ -135,6 +137,7 @@ var bookData1={
 var bookDatas=[];
 bookDatas.push(bookData);
 bookDatas.push(bookData1);
+//图书列表页
 function booksShow(){
 	//此处应从后台获取数据
 	//传入参数 每页显示条数，页数
@@ -158,6 +161,7 @@ function booksShow(){
 	
 	
 }
+//图书详情页
 function bookShow(){
 //	var bookName=$(this).val();
 //	console.log(bookName);
@@ -193,6 +197,7 @@ function bookShow(){
 	$(".book").html(bookDetail);
 		
 }
+//返回图书详情页
 function returnBookListPage(){
 	$(".book").hide();
 	books.show();
@@ -270,7 +275,7 @@ function convertLuoJiFu(luojifu){
 		break;
 	}
 }
-//主页面简单检索
+//主页面简单检索文献详情页
 function mainPageArticleShow(){
 	var articleDetail='';
 	articleDetail+='<table><tr><td>篇名</td><td>'+articleData.lypm+'</td></tr><tr><td>英文篇名</td><td>'+articleData.ywpm
@@ -284,6 +289,7 @@ function mainPageArticleShow(){
 	article.show();
 	$(".articleContent").html(articleDetail);
 }
+//主页面展示,初始状态
 function mainShow(){
 	initPage();
 	title.text("中国法律引证指数CLCI系统");
@@ -291,7 +297,9 @@ function mainShow(){
 	$(".visualPart").show();
 	$("#mainPageResult").hide();
 }
+//检索结果之后页面展现
 function mainPageSearch(){
+	mainShow();
 	//判断检索条件并转换为属性名
 	var searchCondition=$("#searchCondition").val();
 	searchCondition=convertSearchCondition(searchCondition);
@@ -313,6 +321,7 @@ function mainPageSearch(){
 	$("#mainPageResult").html(searchResult);
 
 }
+//返回主页面检索结果页
 function returnMainPage(){
 	title.text("中国法律引证指数CLCI系统");
 	main.show();
